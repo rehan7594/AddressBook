@@ -1,16 +1,44 @@
 package com.addressbook;
 
 /*
-program to create Address Book with person's details
-like first_Name,last_Name,city,state,zip,phoneNumber
+@description: class to add multiple person,s
+details
+@parameters: defining a addNewPerson method to
+create new person details
 */
 import java.util.*;
 
 public class AddressBook {
 
-	public static void main(String[] args) {
-		System.out.println("person details");
-		ContactInfo c = new ContactInfo("rehan", "kumar", "banglore", "karnataka" , "btm 2nd stage", "rehansdm94@7594.com","560076", 821764632);
-		c.showPersonsDetails();
+	public void addNewPerson() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("First Name");
+		String firstName = scanner.nextLine();
+		System.out.println("Last Name");
+		String lastName = scanner.nextLine();
+		System.out.println("address");
+		String address = scanner.nextLine();
+		System.out.println("State");
+		String state = scanner.nextLine();
+		System.out.println("City");
+		String city = scanner.nextLine();
+		System.out.println("Zip");
+		String zipCode = scanner.nextLine();
+		System.out.println("Phone Number");
+		long phoneNumber = scanner.nextLong();
+		System.out.println("Email");
+		String email = scanner.next();
+
+		ContactInfo person = new ContactInfo( firstName, lastName , city,  state,  address,  email,  zipCode, phoneNumber);
+		person.showPersonsDetails();
+		System.out.println("new person details added");
+	}
+
+
+	public static void main(String args[]) {
+
+		AddressBook addressBook = new AddressBook();
+		addressBook.addNewPerson();
+
 	}
 }
