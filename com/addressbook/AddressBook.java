@@ -2,10 +2,12 @@ package com.addressbook;
 
 /*
 @description: class to add multiple person,s
-details and edit person details using firstName
+details,edit person details using firstName
+and delete person's details using their first name 
 @parameters: defining a addNewPerson method to
 create new person details and editPerson method to edit
 person details using first person's first name
+and delete the person using their first name
 */
 import java.util.*;
 
@@ -121,6 +123,22 @@ public class AddressBook {
 		}
 	}
 
+	//method to delete person using their first name
+	public void deletePerson(){
+
+		int index=this.indexOfPerson();
+
+		if(index != -1){
+
+			ContactInfo p=this.data.remove(index);
+			System.out.println("Person "+p.getfirstName()+" removed successfully.");
+		}
+		else{
+
+			System.out.println("No one with these details found!");
+		}
+	}
+
 	//method to show person details
 	public void showPerson(){
 
@@ -136,7 +154,7 @@ public class AddressBook {
 		}
 	}
 
-	/* Operations Respective Method Caller */
+	//method to select which operation we want to do in address book
 	public void runMenu(){
 
 		long choice=-1;
@@ -147,7 +165,8 @@ public class AddressBook {
 			System.out.println("| 1. Add a person");
 			System.out.println("| 2. Edit a person");
 			System.out.println("| 3. Show a person");
-			System.out.println("| 4. Exit");
+			System.out.println("| 4. delete a person");
+			System.out.println("| 5. Exit");
 
 			choice=readLong("Enter your choice: ");
 
@@ -159,7 +178,9 @@ public class AddressBook {
 			break;
 			case 3: showPerson();
 			break;
-			case 4: choice = 0;
+			case 4: deletePerson();
+			break;
+			case 5: choice = 0;
 			break;
 			default: System.out.println("invalid Input!");
 			}
@@ -172,4 +193,3 @@ public class AddressBook {
 	}
 
 }
-
